@@ -3,10 +3,12 @@ package com.boxuegu.domain;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,6 +24,7 @@ public class Team {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;// 球队ID
 	private String name;// 球队名称
+	@OneToMany(targetEntity=Player.class,mappedBy="team",cascade=CascadeType.ALL)
 	private Set<Player> players = new HashSet<Player>();
 	public Integer getId() {
 		return id;

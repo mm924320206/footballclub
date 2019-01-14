@@ -3,6 +3,7 @@ package com.boxuegu.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -23,6 +24,7 @@ public class Player {
 	private String name;// 球员姓名
 	private int age;// 球员年龄
 	private double salary;
+	@ManyToOne(targetEntity=Team.class)
 	private Team team;// 所属球队
 	public String getId() {
 		return id;

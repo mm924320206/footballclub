@@ -46,7 +46,7 @@
 			<center>
 				<font size="50">足球俱乐部管理平台</font>
 			</center>
-			<form action=""
+			<form action="${pageContext.request.contextPath}/user_login"
 				method="post">
 				<ul>
 					<li><h5>用户名:</h5> <input name="username" type="text"
