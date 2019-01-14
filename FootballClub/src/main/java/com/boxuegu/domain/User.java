@@ -1,11 +1,21 @@
 package com.boxuegu.domain;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 用户实体
  * @author Administrator
  *
  */
+@Entity
+@Table(name="t_user",catalog="footballclub")
 public class User {
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String username;
 	private String password;

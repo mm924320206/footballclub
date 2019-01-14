@@ -5,10 +5,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>欢迎登录后台管理系统</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 <script src="js/cloud.js" type="text/javascript"></script>
 
-<script language="javascript">
+<script type="text/javascript">
 	//session过期 跳出ifarme
 	if (window != top) {
 		top.location.href = location.href;
@@ -52,7 +52,7 @@
 					<li><h5>用户名:</h5> <input name="username" type="text"
 						class="loginuser" value="admin" onclick="JavaScript:this.value=''" /></li>
 					<li><h5>密&nbsp;&nbsp;&nbsp;码:</h5> <input name="password"
-						type="text" class="loginpwd" value="密码"
+						type="password" class="loginpwd" value=""
 						onclick="JavaScript:this.value=''" /></li>
 					<li><input type="submit" class="loginbtn" value="登录" /></li>
 				</ul>

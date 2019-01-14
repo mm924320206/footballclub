@@ -1,12 +1,24 @@
 package com.boxuegu.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * 球员实体
  * 
  * @author Administrator
  *
  */
+@Entity
+@Table(name="t_player",catalog="footballclub")
 public class Player {
+	@Id
+	@GenericGenerator(name="myuuid",strategy="uuid")
+	@GeneratedValue(generator="myuuid")
 	private String id;// 设置uuid 球员ID
 	private String name;// 球员姓名
 	private int age;// 球员年龄

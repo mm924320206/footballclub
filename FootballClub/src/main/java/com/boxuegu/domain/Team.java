@@ -3,13 +3,23 @@ package com.boxuegu.domain;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 球队实体
  * 
  * @author Administrator
  *
  */
+@Entity
+@Table(name="t_team",catalog="footballclub")
 public class Team {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;// 球队ID
 	private String name;// 球队名称
 	private Set<Player> players = new HashSet<Player>();
