@@ -5,10 +5,20 @@
 
 <struts>
 	<package name="football" namespace="/" extends="struts-default">
-		
+		<interceptors>
+			<interceptor name="myinterceptor" class="com.boxuegu.interceptor.MyMethodInterceptor">
+				 <param name="excludeMethods">login</param>
+				<!-- <param name="includeMethods">login</param> -->
+			</interceptor>
+			<interceptor-stack name="mystack">
+				<interceptor-ref  name="myinterceptor" />
+				<interceptor-ref  name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
 		<!-- 页面跳转映射 -->
 		<action name="page_*">
 			<result name="success">/page/{1}.jsp</result>
 		</action>
+		
 	</package>
 </struts>

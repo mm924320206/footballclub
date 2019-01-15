@@ -5,6 +5,7 @@
 <title>球员列表展示</title>
 <link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/playerlist.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -32,7 +33,7 @@
 		<div class="tools">
 			<ul class="toolbar">
 				<li class="click"><a href="playerAdd.jsp"><span> <img
-							src="images/t01.png" /></span>添加</li>
+							src="${pageContext.request.contextPath }/images/t01.png" /></span>添加</li>
 				</a>
 			</ul>
 		</div>
@@ -52,7 +53,7 @@
 			<tbody>
 				<tr>
 					<td>1</td>
-					<td><img alt="" src="images/meixi.jpg" style="width: 100px;height: 100px;"></td>
+					<td><img alt="" src="${pageContext.request.contextPath }/images/meixi.jpg" style="width: 100px;height: 100px;"></td>
 					<td>梅西</td>
 					<td>30</td>
 					<td>300000</td>

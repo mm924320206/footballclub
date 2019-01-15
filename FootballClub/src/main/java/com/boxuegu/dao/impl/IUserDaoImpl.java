@@ -1,5 +1,7 @@
 package com.boxuegu.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,18 +21,23 @@ public class IUserDaoImpl extends HibernateDaoSupport implements IUserDao {
 
 	@Override
 	public User login(User user) {
-		
+
 		/*
 		 * return (User)this.getHibernateTemplate().
 		 * findByNamedParam("from User u where u.username=? and u.password=?",
 		 * user.getUsername(), user.getPassword());
 		 */
-		User user2=new User();
-		user2.setUsername("admin");
-		user2.setPassword("admin");
-		user2.setId(1);
-		return user2;
-		 
+		/*
+		 * User user2=new User(); user2.setUsername("admin");
+		 * user2.setPassword("admin"); user2.setId(1); return user2;
+		 */
+		List<User> list = this.getHibernateTemplate().findByExample(user);
+		if (list.size() > 0) {
+			return list.get(0);
+		} else {
+			return null;
+		}
+
 	}
 
 }

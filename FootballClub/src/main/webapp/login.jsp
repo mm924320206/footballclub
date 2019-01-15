@@ -33,7 +33,6 @@
 	style="background-color: #1c77ac; background-image: url(images/light.png); background-repeat: no-repeat; background-position: center top; overflow: hidden;">
 
 
-
 	<div id="mainBody">
 		<div id="cloud1" class="cloud"></div>
 		<div id="cloud2" class="cloud"></div>
@@ -46,6 +45,7 @@
 			<center>
 				<font size="50">足球俱乐部管理平台</font>
 			</center>
+			
 			<form action="${pageContext.request.contextPath}/user_login"
 				method="post">
 				<ul>
@@ -55,9 +55,12 @@
 						type="password" class="loginpwd" value=""
 						onclick="JavaScript:this.value=''" /></li>
 					<li><input type="submit" class="loginbtn" value="登录" /></li>
+					<s:actionerror cssStyle="color:red"/>
 				</ul>
 			</form>
-		</div>
+			
+	</div>
+	
 	</div>
 </body>
 </html>

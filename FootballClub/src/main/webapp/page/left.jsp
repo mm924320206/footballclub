@@ -33,7 +33,7 @@ $(function(){
     <dl class="leftmenu">
     <dd>
     	<ul class="menuson">
-        <li class="active"><cite></cite><a href="playerList.jsp" target="rightFrame">球员管理</a><i></i></li>
+        <li class="active"><cite></cite><a href="${pageContext.request.contextPath }/PlayList" target="rightFrame">球员管理</a><i></i></li>
         </ul>    
     </dd>
     </dl>
