@@ -32,7 +32,7 @@
 	<div class="rightinfo">
 		<div class="tools">
 			<ul class="toolbar">
-				<li class="click"><a href="playerAdd.jsp"><span> <img
+				<li class="click"><a href="${pageContext.request.contextPath }/page/playerAdd.jsp"><span> <img
 							src="${pageContext.request.contextPath }/images/t01.png" /></span>添加</li>
 				</a>
 			</ul>
@@ -59,7 +59,7 @@
 					<td>300000</td>
 					<td>2017-11-14</td>
 					<td>巴塞罗那</td>
-					<td><a href="playerUpdate.jsp" class="tablelink">修改</a>|<a href="#"
+					<td><a href="${pageContext.request.contextPath }/page/playerUpdate.jsp" class="tablelink">修改</a>|<a href="#"
 						class="tablelink">删除</a></td>
 				</tr>
 			</tbody>

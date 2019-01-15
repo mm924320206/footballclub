@@ -30,8 +30,8 @@ public class PlayListAction extends ActionSupport implements ModelDriven<Player>
 		return player;
 	}
 	
-	@Action(value = "PlayList", interceptorRefs={@InterceptorRef("mystack")},results = { @Result(name = "success", location = "/page/playList.jsp"),
-			@Result(name = "error", location = "/page/error.jsp",type="redirect") })
+	@Action(value = "PlayList", interceptorRefs={@InterceptorRef("mystack")},results = { @Result(name = "success", location = "/page/playerList.jsp"),
+			@Result(name = "error_playerlist", location = "/page/error.jsp",type="redirect"),@Result(name = "error", location = "/login.jsp",type="redirect") })
 	public String playListByPage()
 	{
 		

@@ -10,7 +10,7 @@ $(function(){
 	var totalPage=0;
 	var totalCount=0;
 	var currentCount=5;
-	$.post("/footballClub/action/PlayList", {
+	$.post("/football/PlayList", {
 		" pageNum" : pageNum,
 		"totalPage" : totalPage,
 		"totalCount" : totalCount,
