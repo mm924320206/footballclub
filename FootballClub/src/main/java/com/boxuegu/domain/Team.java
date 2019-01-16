@@ -26,10 +26,8 @@ public class Team {
 	private String name;// 球队名称
 	@OneToMany(targetEntity=Player.class,mappedBy="team",cascade=CascadeType.ALL)
 	private Set<Player> players = new HashSet<Player>();
-	@Override
-	public String toString() {
-		return "Team [id=" + id + ", name=" + name + ", players=" + players + "]";
-	}
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -48,4 +46,5 @@ public class Team {
 	public void setPlayers(Set<Player> players) {
 		this.players = players;
 	}
+	
 }

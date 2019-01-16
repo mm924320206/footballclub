@@ -4,7 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>球员列表展示</title>
 <link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath }/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/playerlist.js"></script>
 
 <script type="text/javascript">
@@ -33,10 +35,30 @@
 		<div class="tools">
 			<ul class="toolbar">
 				<li class="click"><a href="${pageContext.request.contextPath }/page/playerAdd.jsp"><span> <img
-							src="${pageContext.request.contextPath }/images/t01.png" /></span>添加</li>
-				</a>
+							src="${pageContext.request.contextPath }/images/t01.png" /></span></a>添加</li>
 			</ul>
 		</div>
+		<div>
+		<nav id="page" aria-label="Page navigation" >
+  <ul class="pagination">
+    <li class="disabled">
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
 		<table class="tablelist">
 			<thead>
 				<tr>
@@ -50,7 +72,7 @@
 					<th>操作</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="msg">
 				<tr>
 					<td>1</td>
 					<td><img alt="" src="${pageContext.request.contextPath }/images/meixi.jpg" style="width: 100px;height: 100px;"></td>

@@ -1,5 +1,7 @@
 package com.boxuegu.action;
 
+import java.io.IOException;
+
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
@@ -38,9 +40,8 @@ public class PlayListAction extends ActionSupport implements ModelDriven<Player>
 	}
 	@Autowired
 	private IPlayerListModelService IPlayerListModelService;
-	@Action(value = "PlayList", interceptorRefs={@InterceptorRef("mystack")},results = { @Result(name = "success", location = "/page/playerList.jsp"),
-			@Result(name = "error_playerlist", location = "/page/error.jsp",type="redirect"),@Result(name = "error", location = "/login.jsp",type="redirect") })
-	public String playListByPage()
+	@Action(value = "PlayList", interceptorRefs={@InterceptorRef("mystack")})
+	public void playListByPage()
 	{
 		/**
 		 * var pageNum=1;
@@ -61,15 +62,30 @@ public class PlayListAction extends ActionSupport implements ModelDriven<Player>
 		int currentCount=Integer.parseInt((ServletActionContext.getRequest().getParameter("currentCount")));
 		/* System.out.println(pageNum); */
 		PageBean<Player> pageBean=IPlayerListModelService.showPlayerList(pageNum,currentCount);
-		PropertyFilter filter=new PropertyFilter() {
-			
-			@Override
-			public boolean apply(Object object, String name, Object value) {
-				
-				return false;
-			}
-		};
-		String json=JSONArray.toJSONString(pageBean, filter, SerializerFeature.DisableCircularReferenceDetect);
-		System.out.println(pageBean.getCurrentCounts());
-		return "success";}
+		
+		  PropertyFilter filter=new PropertyFilter() {
+		  
+		  @Override 
+		  public boolean apply(Object object, String name, Object value) {
+		  if ("id".equalsIgnoreCase(name)) {
+			  return false; 
+		}
+		  if ("players".equalsIgnoreCase(name)) {
+			  return false; 
+		}
+				/*
+				 * if ("team".equalsIgnoreCase(name)) { return false; }
+				 */
+		
+		  return true; } };
+		 
+		String json=JSONArray.toJSONString(pageBean,filter,SerializerFeature.DisableCircularReferenceDetect);
+		try {
+			ServletActionContext.getResponse().getWriter().write(json);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(json);
+		}
 	}

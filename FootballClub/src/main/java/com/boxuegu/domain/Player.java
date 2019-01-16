@@ -25,11 +25,7 @@ public class Player {
 	@GenericGenerator(name="myuuid",strategy="uuid")
 	@GeneratedValue(generator="myuuid")
 	private String id;// 设置uuid 球员ID
-	@Override
-	public String toString() {
-		return "Player [id=" + id + ", photoaddress=" + photoaddress + ", name=" + name + ", age=" + age + ", salary="
-				+ salary + ", createdate=" + createdate + ", team=" + team + "]";
-	}
+	
 	private String photoaddress; //照片地址
 	private String name;// 球员姓名
 	private int age;// 球员年龄
@@ -68,4 +64,17 @@ public class Player {
 	public void setTeam(Team team) {
 		this.team = team;
 	}
+	public String getPhotoaddress() {
+		return photoaddress;
+	}
+	public void setPhotoaddress(String photoaddress) {
+		this.photoaddress = photoaddress;
+	}
+	public Date getCreatedate() {
+		return createdate;
+	}
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
+	}
+	
 }
