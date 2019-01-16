@@ -4,14 +4,15 @@
 <title>功能菜单</title>
 <link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="${pageContext.request.contextPath }/js/jquery.js"></script>
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath }/js/playerlist.js"></script> --%>
 
 <script type="text/javascript">
 $(function(){	
 	//导航切换
-	$(".menuson li").click(function(){
+ 	$(".menuson li").click(function(){
 		$(".menuson li.active").removeClass("active")
 		$(this).addClass("active");
-	});
+	}); 
 	
 	$('.title').click(function(){
 		var $ul = $(this).next('ul');
@@ -33,7 +34,7 @@ $(function(){
     <dl class="leftmenu">
     <dd>
     	<ul class="menuson">
-        <li class="active"><cite></cite><a href="${pageContext.request.contextPath }/PlayList" target="rightFrame">球员管理</a><i></i></li>
+        <li><cite></cite><a  href="${pageContext.request.contextPath }/page/playerList.jsp" target="rightFrame">球员管理</a><i></i></li>
         </ul>    
     </dd>
     </dl>

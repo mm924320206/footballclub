@@ -1,10 +1,14 @@
 package com.boxuegu.domain;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -21,9 +25,17 @@ public class Player {
 	@GenericGenerator(name="myuuid",strategy="uuid")
 	@GeneratedValue(generator="myuuid")
 	private String id;// 设置uuid 球员ID
+	@Override
+	public String toString() {
+		return "Player [id=" + id + ", photoaddress=" + photoaddress + ", name=" + name + ", age=" + age + ", salary="
+				+ salary + ", createdate=" + createdate + ", team=" + team + "]";
+	}
+	private String photoaddress; //照片地址
 	private String name;// 球员姓名
 	private int age;// 球员年龄
 	private double salary;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdate; //创建日期
 	@ManyToOne(targetEntity=Team.class)
 	private Team team;// 所属球队
 	public String getId() {
