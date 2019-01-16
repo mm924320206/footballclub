@@ -40,7 +40,7 @@ public class PlayListAction extends ActionSupport implements ModelDriven<Player>
 	}
 	@Autowired
 	private IPlayerListModelService IPlayerListModelService;
-	@Action(value = "PlayList", interceptorRefs={@InterceptorRef("mystack")})
+	@Action(value = "PlayList", interceptorRefs={@InterceptorRef("mystack")},results = { @Result(name = "error", location = "/login.jsp",type="redirect")})
 	public void playListByPage()
 	{
 		/**
@@ -57,8 +57,8 @@ public class PlayListAction extends ActionSupport implements ModelDriven<Player>
 		 */
 		ServletActionContext.getResponse().setCharacterEncoding("utf-8");
 		int pageNum=Integer.parseInt((ServletActionContext.getRequest().getParameter("pageNum")));
-		int totalPage=Integer.parseInt((ServletActionContext.getRequest().getParameter("totalPage")));
-		int totalCount=Integer.parseInt((ServletActionContext.getRequest().getParameter("totalCount")));
+//		int totalPage=Integer.parseInt((ServletActionContext.getRequest().getParameter("totalPage")));
+//		int totalCount=Integer.parseInt((ServletActionContext.getRequest().getParameter("totalCount")));
 		int currentCount=Integer.parseInt((ServletActionContext.getRequest().getParameter("currentCount")));
 		/* System.out.println(pageNum); */
 		PageBean<Player> pageBean=IPlayerListModelService.showPlayerList(pageNum,currentCount);

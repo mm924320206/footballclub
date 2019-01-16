@@ -28,9 +28,10 @@ public class IPlayerListModelServiceImpl implements IPlayerListModelService {
 		pageBean.setTotalCount(totalCount);
 		//根据总记录和每页条数，设置多少页
 		int totalPage=(int) Math.ceil(totalCount*1.0/currentCount);
+		pageBean.setTotalPage(totalPage);
 		//返回查询的每页的球员
 		List<Player> players=PlayerListModelDao.findByPage(pageNum,currentCount);
-		pageBean.setCurrentCounts(players);
+		pageBean.setCurrentContent(players);
 		return pageBean;
 	}
 

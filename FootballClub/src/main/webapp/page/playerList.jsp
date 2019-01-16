@@ -40,7 +40,7 @@
 		</div>
 		<div>
 		<nav id="page" aria-label="Page navigation" >
-  <ul class="pagination">
+  <!-- <ul class="pagination">
     <li class="disabled">
       <a href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
@@ -56,7 +56,7 @@
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
-  </ul>
+  </ul> -->
 </nav>
 </div>
 		<table class="tablelist">
@@ -73,7 +73,7 @@
 				</tr>
 			</thead>
 			<tbody id="msg">
-				<tr>
+				<%-- <tr>
 					<td>1</td>
 					<td><img alt="" src="${pageContext.request.contextPath }/images/meixi.jpg" style="width: 100px;height: 100px;"></td>
 					<td>梅西</td>
@@ -83,7 +83,7 @@
 					<td>巴塞罗那</td>
 					<td><a href="${pageContext.request.contextPath }/page/playerUpdate.jsp" class="tablelink">修改</a>|<a href="#"
 						class="tablelink">删除</a></td>
-				</tr>
+				</tr> --%>
 			</tbody>
 		</table>
 	</div>

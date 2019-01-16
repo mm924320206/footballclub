@@ -7,7 +7,7 @@ public class PageBean<T> {
 	private int totalPage;
 	private int totalCount;
 	private int currentCount;
-	private List<T> currentCounts;
+	private List<T> currentContent;
 	public int getPageNum() {
 		return pageNum;
 	}
@@ -32,11 +32,11 @@ public class PageBean<T> {
 	public void setCurrentCount(int currentCount) {
 		this.currentCount = currentCount;
 	}
-	public List<T> getCurrentCounts() {
-		return currentCounts;
+	public List<T> getCurrentContent() {
+		return currentContent;
 	}
-	public void setCurrentCounts(List<T> currentCounts) {
-		this.currentCounts = currentCounts;
+	public void setCurrentContent(List<T> currentContent) {
+		this.currentContent = currentContent;
 	}
 	
 }
