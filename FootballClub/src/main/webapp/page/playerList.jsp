@@ -8,6 +8,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/playerlist.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/pagebean.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -59,9 +60,9 @@
   </ul> -->
 </nav>
 </div>
-		<table class="tablelist">
+		<table class="table table-hover table-bordered">
 			<thead>
-				<tr>
+				<tr class="info">
 					<th>ID</th>
 					<th>照片</th>
 					<th>名称</th>
