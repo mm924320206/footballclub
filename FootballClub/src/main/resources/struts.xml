@@ -4,6 +4,8 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+<constant name="struts.devMode" value="true"/>
+<!-- <constant name="struts.multipart.saveDir" value="/photo"/> -->
 	<package name="football" namespace="/" extends="struts-default">
 		<interceptors>
 			<interceptor name="myinterceptor" class="com.boxuegu.interceptor.MyMethodInterceptor">
@@ -12,7 +14,10 @@
 			</interceptor>
 			<interceptor-stack name="mystack">
 				<interceptor-ref  name="myinterceptor" />
-				<interceptor-ref  name="defaultStack"></interceptor-ref>
+				<interceptor-ref  name="defaultStack">
+				<param name="fileUpload.allowedExtensions">png,jpg,bmp,txt</param>
+				</interceptor-ref>
+				
 			</interceptor-stack>
 		</interceptors>
 		<!-- 页面跳转映射 -->

@@ -50,10 +50,10 @@
 				method="post">
 				<ul>
 					<li><h5>用户名:</h5> <input name="username" type="text"
-						class="loginuser" value="admin" onclick="JavaScript:this.value=''" /></li>
+						class="loginuser" onclick="JavaScript:this.value=''" placeholder="用户名"/></li>
 					<li><h5>密&nbsp;&nbsp;&nbsp;码:</h5> <input name="password"
 						type="password" class="loginpwd" value=""
-						onclick="JavaScript:this.value=''" /></li>
+						onclick="JavaScript:this.value=''" placeholder="密码"/></li>
 					<li><input type="submit" class="loginbtn" value="登录" /></li>
 					<s:actionerror cssStyle="color:red"/>
 				</ul>

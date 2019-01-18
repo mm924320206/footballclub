@@ -42,7 +42,6 @@ $(function(){
 		currentCount=json.currentCount;
 		totalCount=json.totalCount;
 		totalPage=json.totalPage;
-		alert(pageNum);
 		/*<ul class="pagination">
 	    <li class="disabled">
 	      <a href="#" aria-label="Previous">
