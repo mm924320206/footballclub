@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.boxuegu.dao.IPlayerListModelDao;
 import com.boxuegu.domain.PageBean;
 import com.boxuegu.domain.Player;
+import com.boxuegu.domain.Team;
 import com.boxuegu.service.IPlayerListModelService;
 @Service("IPlayerListModelService")
 public class IPlayerListModelServiceImpl implements IPlayerListModelService {
@@ -33,6 +34,22 @@ public class IPlayerListModelServiceImpl implements IPlayerListModelService {
 		List<Player> players=PlayerListModelDao.findByPage(pageNum,currentCount);
 		pageBean.setCurrentContent(players);
 		return pageBean;
+	}
+	@Override
+	public List<String> findTeam() {
+		List<String> list=PlayerListModelDao.findTeam();
+		return list;
+	}
+
+	@Override
+	public void save(Player player,Team team) {
+		PlayerListModelDao.save(player,team);
+		
+	}
+	@Override
+	public Team findTeamByName(String teamString) {
+		Team team=PlayerListModelDao.findTeamByName(teamString);
+		return team;
 	}
 
 }

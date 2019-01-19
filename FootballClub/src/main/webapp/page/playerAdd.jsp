@@ -13,6 +13,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/select-ui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/editor/kindeditor.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/playeradd.js"></script>
 
 <script type="text/javascript">
 	KE.show({
@@ -61,9 +62,9 @@
   				</div>
 				<div class="form-group col-md-6 col-md-offset-3">
     			 <label for="team">球队</label>
-   				 <select class="form-control" style="width: 300px;">
-  					<option value="">巴塞罗那</option>
-  					<option value="">皇马</option>
+   				 <select id="select" name="select" class="form-control" style="width: 300px;">
+  					<!-- <option value="">巴塞罗那</option>
+  					<option value="">皇马</option> -->
 				</select>
   				</div>
   				<div class="form-group col-md-6 col-md-offset-3">

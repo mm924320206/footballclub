@@ -25,7 +25,6 @@ public class Player {
 	@GenericGenerator(name="myuuid",strategy="uuid")
 	@GeneratedValue(generator="myuuid")
 	private String id;// 设置uuid 球员ID
-	
 	private String photoaddress; //照片地址
 	private String name;// 球员姓名
 	private int age;// 球员年龄

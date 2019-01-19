@@ -15,7 +15,8 @@
 			<interceptor-stack name="mystack">
 				<interceptor-ref  name="myinterceptor" />
 				<interceptor-ref  name="defaultStack">
-				<param name="fileUpload.allowedExtensions">png,jpg,bmp,txt</param>
+				<param name="fileUpload.maximumSize">5097152</param>
+				<param name="fileUpload.allowedExtensions">png,jpg,bmp</param>
 				</interceptor-ref>
 				
 			</interceptor-stack>

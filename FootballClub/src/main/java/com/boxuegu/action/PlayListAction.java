@@ -25,18 +25,18 @@ import com.opensymphony.xwork2.ModelDriven;
 @Scope("prototype")
 @Namespace("/")
 @ParentPackage("football")
-public class PlayListAction extends ActionSupport implements ModelDriven<Player>{
+public class PlayListAction extends ActionSupport implements ModelDriven<PageBean<Player>>{
 
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Player player=new Player();
+	private PageBean<Player> pageBean=new PageBean<Player>();
 	@Override
-	public Player getModel() {
+	public PageBean<Player> getModel() {
 		// TODO Auto-generated method stub
-		return player;
+		return pageBean;
 	}
 	@Autowired
 	private IPlayerListModelService IPlayerListModelService;

@@ -27,7 +27,14 @@ public class Team {
 	@OneToMany(targetEntity=Player.class,mappedBy="team",cascade=CascadeType.ALL)
 	private Set<Player> players = new HashSet<Player>();
 
-
+	public Team() {
+		super();
+	}
+	public Team(Integer id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
 	public Integer getId() {
 		return id;
 	}
