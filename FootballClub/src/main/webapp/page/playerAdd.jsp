@@ -42,7 +42,7 @@
 	<div class="formbody">
 		<div id="usual1" class="usual">
 			<div id="tab1" class="tabson">
-				<form action="${pageContext.request.contextPath}/player_add" method="post"  enctype="multipart/form-data">
+				<form action="${pageContext.request.contextPath}/playeradd" method="post"  enctype="multipart/form-data">
 					<div class="form-group col-md-6 col-md-offset-3">
 					<h2>球员添加</h2>
     			 <label for="name">球员名称</label>

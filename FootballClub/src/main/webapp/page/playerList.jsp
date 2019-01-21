@@ -64,6 +64,7 @@
 			<thead>
 				<tr class="info">
 					<th>ID</th>
+					<!-- <th style="display:none">realID</th> -->
 					<th>照片</th>
 					<th>名称</th>
 					<th>年龄</th>

@@ -29,7 +29,10 @@ function showPage(s){
 		var html="";
 		var jsonObj=json.currentContent;
 		for(var i=0;i<jsonObj.length;i++)
-{html += "<tr><td>"
+{
+		/*	+"</td><td style=\"display:none;\" name=\"iid\">"
+			+ jsonObj[i].id*/
+			html += "<tr><td>"
 	+ ((json.pageNum - 1) * json.currentCount
 			+ i + 1)
 	+ "</td><td><img alt=\"\" src=\""
@@ -44,7 +47,8 @@ function showPage(s){
 	+ jsonObj[i].createdate
 	+ "</td><td>"
 	+ jsonObj[i].team.name
-	+ "</td><td><a href=\"playerUpdate.jsp\" class=\"tablelink\">修改</a>|<a href=\"#\"class=\"tablelink\">删除</a></td></tr>"}
+	+ "</td><td><a href=\"/football/playerUpdate?iid="+jsonObj[i].id+"\" class=\"tablelink\">修改</a>|<a href=\"#\"class=\"tablelink\">删除</a></td></tr>"
+	}
 		$("#msg").html(html);
 		pageNum=json.pageNum;
 		currentCount=json.currentCount;

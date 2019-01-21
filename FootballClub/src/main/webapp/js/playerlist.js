@@ -36,6 +36,8 @@ $(function(){
 			/*<img alt=\"\" src=\"/football/photos/12.png\" style=\"width: 100px;height: 100px;\">
 */		/*{"age":18,"createdate":"2018-12-01 00:00:00","name":"xxx","photoaddress":"xxx","salary":3000,"team":{"name":"皇马"}}*/
 						{
+/*			+"</td><td style=\"display:none;\" name=\"iid\">"
+			+ jsonObj[i].id*/
 							html += "<tr><td>"
 									+ ((json.pageNum - 1) * json.currentCount
 											+ i + 1)
@@ -51,7 +53,7 @@ $(function(){
 									+ jsonObj[i].createdate
 									+ "</td><td>"
 									+ jsonObj[i].team.name
-									+ "</td><td><a href=\"playerUpdate.jsp\" class=\"tablelink\">修改</a>|<a href=\"#\"class=\"tablelink\">删除</a></td></tr>"
+									+ "</td><td><a href=\"/football/playerUpdate?iid="+jsonObj[i].id+"\" class=\"tablelink\">修改</a>|<a href=\"#\"class=\"tablelink\">删除</a></td></tr>"
 						}
 		$("#msg").html(html);
 		/*"currentCount":5,"pageNum":1,"totalCount":17,"totalPage":4*/

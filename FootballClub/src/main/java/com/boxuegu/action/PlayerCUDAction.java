@@ -23,6 +23,8 @@ import com.boxuegu.domain.Team;
 import com.boxuegu.service.IPlayerListModelService;
 import com.opensymphony.xwork2.ActionSupport;
 
+import javassist.expr.NewArray;
+
 @Controller
 @Scope("prototype")
 @Namespace("/")
@@ -76,7 +78,7 @@ public class PlayerCUDAction extends ActionSupport{
 	  }	 
 }
 	
-	@Action(value = "player_add", interceptorRefs = { @InterceptorRef("mystack") }, results = {
+	@Action(value = "playeradd", interceptorRefs = { @InterceptorRef("mystack") }, results = {
 			@Result(name = "error", location = "/login.jsp", type = "redirect"),
 			@Result(name = "playlist", location = "/page/playerList.jsp", type = "redirect"),
 			@Result(name = "input", location = "/page/error.jsp") })
@@ -90,6 +92,9 @@ public class PlayerCUDAction extends ActionSupport{
 				e1.printStackTrace();
 			}
 			String path=ServletActionContext.getServletContext().getRealPath("/photos");
+			//改名字
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmssSS");
+			photoaddressFileName=sdf.format(new Date())+photoaddressFileName;
 			File destFile=new File(path, photoaddressFileName);
 			try {
 				FileUtils.copyFile(photoaddress, destFile);
@@ -101,33 +106,34 @@ public class PlayerCUDAction extends ActionSupport{
 			Player player=new Player();	
 		  player.setAge(Integer.parseInt(ServletActionContext.getRequest().getParameter("age")));
 		  player.setName(ServletActionContext.getRequest().getParameter("name"));
-		  player.setSalary(Double.parseDouble((ServletActionContext.getRequest().getParameter("salary"))));
-		/*
-		 * SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-		 */		  
+		  player.setSalary(Double.parseDouble((ServletActionContext.getRequest().getParameter("salary"))));	  
 		  player.setCreatedate(new Date());
 		  String teamString=ServletActionContext.getRequest().getParameter("select");
 		  Team team=IPlayerListModelService.findTeamByName(teamString);
-		  player.setPhotoaddress(destFile.getPath());
-		  System.out.println(team.getName());
-		  IPlayerListModelService.save(player,team); 
-		  
-		/*
-		 * System.out.println(player.getCreatedate()); System.out.println(team.getId());
-		 * System.out.println(player.getPhotoaddress());
-		 * System.out.println(player.getAge()); System.out.println(player.getName());
-		 */
-		  
-		 
-			
-		
-		/* Boolean tBoolean=IPlayerListModelService.addplayer(); */
-		Boolean tBoolean=true;
-		if (tBoolean) {
-			return "playlist";
-		}
-		else {
+		  player.setPhotoaddress("/football/photos/"+destFile.getName());
+		  //System.out.println(team.getName());
+		  try {
+			  IPlayerListModelService.save(player,team); 
+				return "playlist";
+		} catch (Exception e) {
+			// TODO: handle exception
 			return "input";
 		}
+		
 		}
+		
+		
+	
+	@Action(value = "playerUpdate", interceptorRefs = { @InterceptorRef("mystack") }, results = {
+			@Result(name = "error", location = "/login.jsp", type = "redirect"),
+			@Result(name = "playeruppdate", location = "/page/playerUpdate.jsp"),
+			@Result(name = "input", location = "/page/error.jsp") })
+	public String playerUpdate ()
+	{
+		ServletActionContext.getResponse().setCharacterEncoding("utf-8");
+		String id=ServletActionContext.getRequest().getParameter("iid");
+		System.out.println(id);
+		return "playeruppdate";
+		
+	}
 }

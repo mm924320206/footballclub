@@ -60,7 +60,8 @@ public class IPlayerListModelDaoImpl extends HibernateDaoSupport implements IPla
 		 * list=(List<Object>)getHibernateTemplate().findByNamedParam(hqlString,
 		 * paramName, value);
 		 */
-		List<Object> list=(List<Object>)getHibernateTemplate().find("from Team");
+		System.out.println(teamString);
+		List<Object> list=(List<Object>)getHibernateTemplate().find("from Team where name=?",teamString);
 		System.out.println(list);
 		return (Team) list.get(0);
 	}

@@ -57,8 +57,6 @@ public class PlayListAction extends ActionSupport implements ModelDriven<PageBea
 		 */
 		ServletActionContext.getResponse().setCharacterEncoding("utf-8");
 		int pageNum=Integer.parseInt((ServletActionContext.getRequest().getParameter("pageNum")));
-//		int totalPage=Integer.parseInt((ServletActionContext.getRequest().getParameter("totalPage")));
-//		int totalCount=Integer.parseInt((ServletActionContext.getRequest().getParameter("totalCount")));
 		int currentCount=Integer.parseInt((ServletActionContext.getRequest().getParameter("currentCount")));
 		/* System.out.println(pageNum); */
 		PageBean<Player> pageBean=IPlayerListModelService.showPlayerList(pageNum,currentCount);
@@ -67,9 +65,9 @@ public class PlayListAction extends ActionSupport implements ModelDriven<PageBea
 		  
 		  @Override 
 		  public boolean apply(Object object, String name, Object value) {
-		  if ("id".equalsIgnoreCase(name)) {
-			  return false; 
-		}
+				/*
+				 * if ("id".equalsIgnoreCase(name)) { return false; }
+				 */
 		  if ("players".equalsIgnoreCase(name)) {
 			  return false; 
 		}
