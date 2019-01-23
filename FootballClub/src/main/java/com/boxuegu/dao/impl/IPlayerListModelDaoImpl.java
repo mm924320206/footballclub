@@ -74,4 +74,16 @@ public class IPlayerListModelDaoImpl extends HibernateDaoSupport implements IPla
 		
 	}
 
+	@Override
+	public Player findTeamById(String id) {
+		@SuppressWarnings("unchecked")
+		List<Object> list=(List<Object>)getHibernateTemplate().find("from Player where id=?",id);
+		if (list.size() > 0) {
+			return (Player) list.get(0);
+		} else {		
+			return null;
+		}
+		
+	}
+
 }

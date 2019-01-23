@@ -51,5 +51,10 @@ public class IPlayerListModelServiceImpl implements IPlayerListModelService {
 		Team team=PlayerListModelDao.findTeamByName(teamString);
 		return team;
 	}
+	@Override
+	public Player findPlayerById(String id) {
+		// TODO Auto-generated method stub
+		return PlayerListModelDao.findTeamById(id);
+	}
 
 }

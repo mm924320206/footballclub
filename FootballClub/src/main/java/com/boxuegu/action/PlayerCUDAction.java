@@ -21,6 +21,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.boxuegu.domain.Player;
 import com.boxuegu.domain.Team;
 import com.boxuegu.service.IPlayerListModelService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import javassist.expr.NewArray;
@@ -132,7 +133,9 @@ public class PlayerCUDAction extends ActionSupport{
 	{
 		ServletActionContext.getResponse().setCharacterEncoding("utf-8");
 		String id=ServletActionContext.getRequest().getParameter("iid");
-		System.out.println(id);
+		Player player=IPlayerListModelService.findPlayerById(id);
+		System.out.println(player.getId());
+		ActionContext.getContext().getValueStack().set("player", player);
 		return "playeruppdate";
 		
 	}

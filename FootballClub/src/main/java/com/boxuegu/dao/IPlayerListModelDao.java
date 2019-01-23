@@ -17,4 +17,6 @@ public interface IPlayerListModelDao {
 
 	Team findTeamByName(String teamString);
 
+	Player findTeamById(String id);
+
 }

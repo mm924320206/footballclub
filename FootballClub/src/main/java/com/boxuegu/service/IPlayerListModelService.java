@@ -16,4 +16,6 @@ public interface IPlayerListModelService {
 
 	Team findTeamByName(String teamString);
 
+	Player findPlayerById(String id);
+
 }

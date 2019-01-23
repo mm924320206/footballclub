@@ -13,7 +13,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/select-ui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/editor/kindeditor.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/playeradd.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/select.js"></script>
 
 <script type="text/javascript">
 	KE.show({
@@ -35,6 +35,17 @@
 		});
 	});
 </script>
+<script type="text/javascript">
+// 选择图片显示
+function imgChange(obj) {
+//获取点击的文本框
+var file =document.getElementById("file");
+var imgUrl =window.URL.createObjectURL(file.files[0]);
+var img =document.getElementById('imghead');
+img.setAttribute('src',imgUrl); // 修改img标签src属性值
+};
+</script>
+
 </head>
 
 <body>
@@ -58,7 +69,7 @@
   				</div>
   				<div class="form-group col-md-6 col-md-offset-3">
     			 <label for="photoaddress">照片</label>
-   				 <input type="file" name="photoaddress" >
+   				 <input type="file" name="photoaddress" id="file" accept="image/*" onchange="imgChange(this);"/>
   				</div>
 				<div class="form-group col-md-6 col-md-offset-3">
     			 <label for="team">球队</label>
@@ -72,6 +83,9 @@
 				 </div>
 					
 				</form>
+				<div id="preview">
+<img id="imghead"src="" width="100"height="100" /> <!--图片显示位置-->
+</div>
 			</div>
 		</div>
 	</div>
