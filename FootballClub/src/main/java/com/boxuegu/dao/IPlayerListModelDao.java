@@ -19,4 +19,8 @@ public interface IPlayerListModelDao {
 
 	Player findTeamById(String id);
 
+	void update(String id, Player player, Team team);
+
+	void playerDelete(String id);
+
 }

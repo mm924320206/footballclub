@@ -18,4 +18,9 @@ public interface IPlayerListModelService {
 
 	Player findPlayerById(String id);
 
+	void update(String id, Player player, Team team);
+
+	void playerDelete(String id);
+
+
 }

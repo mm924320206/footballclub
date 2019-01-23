@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
@@ -30,9 +31,11 @@ public class IPlayerListModelDaoImpl extends HibernateDaoSupport implements IPla
 		return ((Long) this.getHibernateTemplate().find("select count(*) from Player").iterator().next()).intValue();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Player> findByPage(int pageNum, int currentCount) {
 		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Player.class);
+		detachedCriteria.addOrder(Order.desc("createdate"));
 		return (List<Player>) this.getHibernateTemplate().findByCriteria(detachedCriteria, (pageNum - 1) * currentCount,
 				currentCount);
 	}
@@ -60,7 +63,6 @@ public class IPlayerListModelDaoImpl extends HibernateDaoSupport implements IPla
 		 * list=(List<Object>)getHibernateTemplate().findByNamedParam(hqlString,
 		 * paramName, value);
 		 */
-		System.out.println(teamString);
 		List<Object> list=(List<Object>)getHibernateTemplate().find("from Team where name=?",teamString);
 		System.out.println(list);
 		return (Team) list.get(0);
@@ -83,6 +85,28 @@ public class IPlayerListModelDaoImpl extends HibernateDaoSupport implements IPla
 		} else {		
 			return null;
 		}
+		
+	}
+	@Transactional
+	@Override
+	public void update(String id,Player player,Team team) {
+		List<Player> list=(List<Player>)getHibernateTemplate().find("from Player where id=?",id);
+		if (list.size() > 0) 
+		{
+			player.setId(id);
+			player.setTeam(team);
+			
+		this.getHibernateTemplate().merge(player);
+	}
+	}
+
+	@Override
+	public void playerDelete(String id) {
+		List<Player> list=(List<Player>)getHibernateTemplate().find("from Player where id=?",id);
+		if (list.size() > 0) 
+		{	
+		this.getHibernateTemplate().delete(list.get(0));
+	}
 		
 	}
 

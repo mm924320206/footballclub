@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.boxuegu.dao.IPlayerListModelDao;
 import com.boxuegu.domain.PageBean;
@@ -55,6 +56,17 @@ public class IPlayerListModelServiceImpl implements IPlayerListModelService {
 	public Player findPlayerById(String id) {
 		// TODO Auto-generated method stub
 		return PlayerListModelDao.findTeamById(id);
+	}
+	@Override
+	public void update(String id,Player player,Team team) {
+		// TODO Auto-generated method stub
+		PlayerListModelDao.update(id,player,team);
+	}
+	@Transactional
+	@Override
+	public void playerDelete(String id) {
+		PlayerListModelDao.playerDelete(id);
+		
 	}
 
 }

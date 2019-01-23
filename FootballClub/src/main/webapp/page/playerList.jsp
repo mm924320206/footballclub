@@ -9,6 +9,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/playerlist.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/pagebean.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/playerdelete.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {

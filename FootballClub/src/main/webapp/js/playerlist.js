@@ -53,7 +53,7 @@ $(function(){
 									+ jsonObj[i].createdate
 									+ "</td><td>"
 									+ jsonObj[i].team.name
-									+ "</td><td><a href=\"/football/playerUpdate?iid="+jsonObj[i].id+"\" class=\"tablelink\">修改</a>|<a href=\"#\"class=\"tablelink\">删除</a></td></tr>"
+									+ "</td><td><a href=\"/football/playerUpdate?iid="+jsonObj[i].id+"\" class=\"tablelink\">修改</a>|<a href=\"javascript:del("+jsonObj[i].id+")\"class=\"tablelink\">删除</a></td></tr>"
 						}
 		$("#msg").html(html);
 		/*"currentCount":5,"pageNum":1,"totalCount":17,"totalPage":4*/

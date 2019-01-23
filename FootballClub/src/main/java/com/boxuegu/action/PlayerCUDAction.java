@@ -134,9 +134,82 @@ public class PlayerCUDAction extends ActionSupport{
 		ServletActionContext.getResponse().setCharacterEncoding("utf-8");
 		String id=ServletActionContext.getRequest().getParameter("iid");
 		Player player=IPlayerListModelService.findPlayerById(id);
-		System.out.println(player.getId());
 		ActionContext.getContext().getValueStack().set("player", player);
 		return "playeruppdate";
 		
 	}
+	
+	
+	
+	@Action(value = "playerUpdateByid", interceptorRefs = { @InterceptorRef("mystack") }, results = {
+			@Result(name = "error", location = "/login.jsp", type = "redirect"),
+			@Result(name = "playlist", location = "/page/playerList.jsp", type = "redirect"),
+			@Result(name = "input", location = "/page/error.jsp") })
+	public String playerUpdateByid()
+	
+	{
+		    try {
+				ServletActionContext.getRequest().setCharacterEncoding("utf-8");
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			String path=ServletActionContext.getServletContext().getRealPath("/photos");
+			//改名字
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmssSS");
+			photoaddressFileName=sdf.format(new Date())+photoaddressFileName;
+			File destFile=new File(path, photoaddressFileName);
+			try {
+				FileUtils.copyFile(photoaddress, destFile);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "input";
+			}
+			Player player=new Player();	
+			String id=ServletActionContext.getRequest().getParameter("id"); 
+		  player.setAge(Integer.parseInt(ServletActionContext.getRequest().getParameter("age")));
+		  player.setName(ServletActionContext.getRequest().getParameter("name"));
+		  player.setSalary(Double.parseDouble((ServletActionContext.getRequest().getParameter("salary"))));	  
+		  player.setCreatedate(new Date());
+		  String teamString=ServletActionContext.getRequest().getParameter("select");
+		  Team team=IPlayerListModelService.findTeamByName(teamString);
+		  player.setPhotoaddress("/football/photos/"+destFile.getName());
+		  //System.out.println(team.getName());
+		  try {
+			  IPlayerListModelService.update(id,player,team); 
+				
+		} catch (Exception e) {
+			// TODO: handle exception
+			return "input";
+		}
+		  return "playlist";
+		}
+	
+	
+	
+	@Action(value = "playerdelete", interceptorRefs = { @InterceptorRef("mystack") }, results = {
+			@Result(name = "error", location = "/login.jsp", type = "redirect"),
+			@Result(name = "playlist", location = "/page/playerList.jsp", type = "redirect"),
+			@Result(name = "input", location = "/page/error.jsp") })
+	public void playerDelete()
+	
+	{
+			try {
+				ServletActionContext.getRequest().setCharacterEncoding("utf-8");
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			String id=ServletActionContext.getRequest().getParameter("id"); 
+		  
+		  try {
+			  IPlayerListModelService.playerDelete(id); 
+			  ServletActionContext.getResponse().getWriter().write(1); 		
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		  
+		}
 }
