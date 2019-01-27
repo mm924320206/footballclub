@@ -1,5 +1,5 @@
 /**
- * 
+ * 选择组件的单独js，
  */
 $(function(){
 	$.post("/football/selectShow",function(data){

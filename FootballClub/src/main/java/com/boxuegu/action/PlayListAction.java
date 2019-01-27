@@ -29,7 +29,7 @@ public class PlayListAction extends ActionSupport implements ModelDriven<PageBea
 
 
 	/**
-	 * 
+	 * 分页显示，返回json
 	 */
 	private static final long serialVersionUID = 1L;
 	private PageBean<Player> pageBean=new PageBean<Player>();
@@ -63,6 +63,7 @@ public class PlayListAction extends ActionSupport implements ModelDriven<PageBea
 		
 		  PropertyFilter filter=new PropertyFilter() {
 		  
+			  //json数据串，不要players的部分
 		  @Override 
 		  public boolean apply(Object object, String name, Object value) {
 				/*

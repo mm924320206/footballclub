@@ -42,6 +42,7 @@ public class IPlayerListModelServiceImpl implements IPlayerListModelService {
 		return list;
 	}
 
+	@Transactional
 	@Override
 	public void save(Player player,Team team) {
 		PlayerListModelDao.save(player,team);
@@ -57,6 +58,7 @@ public class IPlayerListModelServiceImpl implements IPlayerListModelService {
 		// TODO Auto-generated method stub
 		return PlayerListModelDao.findTeamById(id);
 	}
+	@Transactional
 	@Override
 	public void update(String id,Player player,Team team) {
 		// TODO Auto-generated method stub

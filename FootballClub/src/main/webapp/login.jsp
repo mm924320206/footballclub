@@ -54,8 +54,8 @@
 					<li><h5>密&nbsp;&nbsp;&nbsp;码:</h5> <input name="password"
 						type="password" class="loginpwd" value=""
 						onclick="JavaScript:this.value=''" placeholder="密码"/></li>
-					<li><input type="submit" class="loginbtn" value="登录" /></li>
-					<s:actionerror cssStyle="color:red"/>
+					<li><input type="submit" class="loginbtn" value="登录" /><div style="position:absolute;left:120px; top:250px;height:35px"><s:actionerror cssStyle="color:red;"/></div></li>
+					
 				</ul>
 			</form>
 			

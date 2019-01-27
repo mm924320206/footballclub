@@ -32,8 +32,9 @@ import javassist.expr.NewArray;
 @ParentPackage("football")
 public class PlayerCUDAction extends ActionSupport{
 	/**
-	 * 
+	 * 球员的增删改都是这个action
 	 */
+	//上传文件所需，提供set方法
 	  private File photoaddress;
 	  private String photoaddressContentType;
 	  private String photoaddressFileName;
@@ -62,9 +63,12 @@ public class PlayerCUDAction extends ActionSupport{
 		this.photoaddressFileName = photoaddressFileName;
 	}
 	private static final long serialVersionUID = 1L;
+	
+	//注解开发
 	@Autowired
 	private IPlayerListModelService IPlayerListModelService;
 
+	//为了html的select的候选项，专门从数据库查
 	@Action(value="selectShow",interceptorRefs = { @InterceptorRef("mystack") })
 	  public void selectShow() {
 	  ServletActionContext.getResponse().setCharacterEncoding("utf-8");
@@ -79,6 +83,7 @@ public class PlayerCUDAction extends ActionSupport{
 	  }	 
 }
 	
+	//添加球员，手动设置添加时间等，使用了级联保存，所以有个team的查询，最后时player。save（team）
 	@Action(value = "playeradd", interceptorRefs = { @InterceptorRef("mystack") }, results = {
 			@Result(name = "error", location = "/login.jsp", type = "redirect"),
 			@Result(name = "playlist", location = "/page/playerList.jsp", type = "redirect"),
@@ -93,7 +98,7 @@ public class PlayerCUDAction extends ActionSupport{
 				e1.printStackTrace();
 			}
 			String path=ServletActionContext.getServletContext().getRealPath("/photos");
-			//改名字
+			//改照片名字
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmssSS");
 			photoaddressFileName=sdf.format(new Date())+photoaddressFileName;
 			File destFile=new File(path, photoaddressFileName);
@@ -124,7 +129,7 @@ public class PlayerCUDAction extends ActionSupport{
 		}
 		
 		
-	
+	//仅仅是修改页面的默认输入值的获取
 	@Action(value = "playerUpdate", interceptorRefs = { @InterceptorRef("mystack") }, results = {
 			@Result(name = "error", location = "/login.jsp", type = "redirect"),
 			@Result(name = "playeruppdate", location = "/page/playerUpdate.jsp"),
@@ -140,7 +145,7 @@ public class PlayerCUDAction extends ActionSupport{
 	}
 	
 	
-	
+	//修改页面重新获得数据，update入数据库，有事务管理
 	@Action(value = "playerUpdateByid", interceptorRefs = { @InterceptorRef("mystack") }, results = {
 			@Result(name = "error", location = "/login.jsp", type = "redirect"),
 			@Result(name = "playlist", location = "/page/playerList.jsp", type = "redirect"),
@@ -187,7 +192,7 @@ public class PlayerCUDAction extends ActionSupport{
 		}
 	
 	
-	
+	//删除，也有事务管理
 	@Action(value = "playerdelete", interceptorRefs = { @InterceptorRef("mystack") }, results = {
 			@Result(name = "error", location = "/login.jsp", type = "redirect"),
 			@Result(name = "playlist", location = "/page/playerList.jsp", type = "redirect"),

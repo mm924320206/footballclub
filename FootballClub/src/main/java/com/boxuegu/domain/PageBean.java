@@ -2,7 +2,9 @@ package com.boxuegu.domain;
 
 import java.util.List;
 
-public class PageBean<T> {
+
+/*为了能够分页显示，专门的po
+*/public class PageBean<T> {
 	private int pageNum;
 	private int totalPage;
 	private int totalCount;

@@ -19,18 +19,11 @@ public class IUserDaoImpl extends HibernateDaoSupport implements IUserDao {
 		super.setSessionFactory(sessionFactory);
 	}
 
+	/* 登陆查找数据库返回匹配 */
 	@Override
 	public User login(User user) {
 
-		/*
-		 * return (User)this.getHibernateTemplate().
-		 * findByNamedParam("from User u where u.username=? and u.password=?",
-		 * user.getUsername(), user.getPassword());
-		 */
-		/*
-		 * User user2=new User(); user2.setUsername("admin");
-		 * user2.setPassword("admin"); user2.setId(1); return user2;
-		 */
+
 		List<User> list = this.getHibernateTemplate().findByExample(user);
 		if (list.size() > 0) {
 			return list.get(0);

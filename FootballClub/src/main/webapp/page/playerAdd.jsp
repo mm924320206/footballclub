@@ -14,7 +14,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/select-ui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/editor/kindeditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/select.js"></script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/nonempty_player.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/non_submit.js"></script>
 <script type="text/javascript">
 	KE.show({
 		id : 'content7',
@@ -56,35 +57,35 @@ img.setAttribute('src',imgUrl); // 修改img标签src属性值
 				<form action="${pageContext.request.contextPath}/playeradd" method="post"  enctype="multipart/form-data">
 					<div class="form-group col-md-6 col-md-offset-3">
 					<h2>球员添加</h2>
-    			 <label for="name">球员名称</label>
-   				 <input type="text" class="form-control" name="name" style="width: 518px;">
+    			 <label for="name">球员名称</label><span id="sp1"></span>
+   				 <input type="text" class="form-control" name="name" id="name" style="width: 518px;" value='' msg="球员名称">
   				</div>
   				<div class="form-group col-md-6 col-md-offset-3">
-    			 <label for="age">球员年龄</label>
-   				 <input type="text" class="form-control" name="age" style="width: 518px;">
+    			 <label for="age">球员年龄</label><span id="sp2"></span>
+   				 <input type="text" class="form-control" name="age" id="age" style="width: 518px;" value='' msg="球员年龄">
   				</div>
   				<div class="form-group col-md-6 col-md-offset-3">
-    			 <label for="salary">球员薪资</label>
-   				 <input type="text" class="form-control" name="salary" style="width: 518px;">
+    			 <label for="salary">球员薪资</label><span id="sp3"></span>
+   				 <input type="text" class="form-control" name="salary" id="salary" style="width: 518px;" msg="球员薪资">
   				</div>
   				<div class="form-group col-md-6 col-md-offset-3">
-    			 <label for="photoaddress">照片</label>
-   				 <input type="file" name="photoaddress" id="file" accept="image/*" onchange="imgChange(this);"/>
+    			 <label for="photoaddress">照片</label><span id="sp4"></span>
+   				 <input type="file" name="photoaddress" id="file" accept="image/*" onchange="imgChange(this);" msg="照片"/>
   				</div>
 				<div class="form-group col-md-6 col-md-offset-3">
-    			 <label for="team">球队</label>
-   				 <select id="select" name="select" class="form-control" style="width: 300px;">
+    			 <label for="team">球队</label><span id="sp5"></span>
+   				 <select id="select" name="select" class="form-control" style="width: 300px;" msg="球队">
   					<!-- <option value="">巴塞罗那</option>
   					<option value="">皇马</option> -->
 				</select>
   				</div>
   				<div class="form-group col-md-6 col-md-offset-3">
-				 <button type="submit" class="btn btn-default ">保存</button>
+				 <button type="submit" id="submit" class="btn btn-default " onclick="return checkNull()">保存</button>
 				 </div>
 					
 				</form>
 				<div id="preview">
-<img id="imghead"src="" width="100"height="100" /> <!--图片显示位置-->
+<img style="position:absolute;left:1020px; top:100px" id="imghead"src="${pageContext.request.contextPath}/photos/ruthtjroehjenrtkkir.jpg" width="200"height="200" /> <!--图片显示位置-->
 </div>
 			</div>
 		</div>

@@ -5,6 +5,8 @@
 	private int currentCount;
 	private List<T> currentCounts;
  */
+
+/*仅仅第一次进入球员列表页时生效，负责翻页组建和第一页显示*/
 $(function(){
 	
 	var pageNum=1;

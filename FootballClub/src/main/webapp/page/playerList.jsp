@@ -30,6 +30,8 @@
 		});
 
 	});
+	
+	
 </script>
 </head>
 <body>
@@ -61,6 +63,7 @@
   </ul> -->
 </nav>
 </div>
+
 		<table class="table table-hover table-bordered">
 			<thead>
 				<tr class="info">

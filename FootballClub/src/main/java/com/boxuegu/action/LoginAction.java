@@ -36,6 +36,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 		return user;
 	}
 
+	/* 登陆验证数据库，存入session和cookie，session是做拦截用的，cookie没有启用 */
 	@Action(value = "user_login", interceptorRefs={@InterceptorRef("mystack")},results = { @Result(name = "success", location = "/page/main.jsp",type="redirect"),
 			@Result(name = "error", location = "/login.jsp") })
 	public String login() {

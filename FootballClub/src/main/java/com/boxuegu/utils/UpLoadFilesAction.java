@@ -15,6 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Scope("prototype")
 @Namespace("/")
 @ParentPackage("football")*/
+//原本是为了照片上传部分的工具类，分开，后来没试成功
 public class UpLoadFilesAction extends ActionSupport{
  /**
 	 * 

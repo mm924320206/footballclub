@@ -10,6 +10,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/select-ui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/editor/kindeditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/select.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/nonempty_player.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/non_submit.js"></script>
 
 <script type="text/javascript">
 	KE.show({
@@ -51,31 +53,31 @@ img.setAttribute('src',imgUrl); // 修改img标签src属性值
 				<form action="${pageContext.request.contextPath }/playerUpdateByid" method="post"  enctype="multipart/form-data">
 					<h2>球员修改</h2>
 					<ul class="forminfo">
-						<li><label>球员名称<b>*</b></label> <input name="name"
-							type="text" class="dfinput" style="width: 518px;" value=<s:property value="player.name"/>></li>
-						<li><label>球员年龄<b>*</b></label> <input name="age" type="text"
-							class="dfinput" style="width: 518px;" value=<s:property value="player.age"/>></li>
-						<li><label>球员薪资<b>*</b></label> <input name="salary"
-							type="text" class="dfinput" style="width: 518px;" value=<s:property value="player.salary"/>></li>
-						<li><label>照片<b>*</b></label> <input name="photoaddress"
-							type="file"  id="file" accept="image/*" onchange="imgChange(this);" style="width: 518px;" /></li>
-						<li><label>球队<b>*</b></label>
+						<li><label>球员名称<b>*</b></label><span id="sp1"></span>
+						 <input name="name" type="text" class="dfinput" style="width: 518px;" value=<s:property value="player.name"/>  msg="球员名称"></li>
+						<li><label>球员年龄<b>*</b></label><span id="sp2"></span><input name="age" type="text"
+							class="dfinput" style="width: 518px;" value=<s:property value="player.age"/>  msg="球员年龄"></li>
+						<li><label>球员薪资<b>*</b></label><span id="sp3"></span> <input name="salary"
+							type="text" class="dfinput" style="width: 518px;" value=<s:property value="player.salary"/> msg="球员薪资"></li>
+						<li><label>照片<b>*</b></label><span id="sp4"></span> <input name="photoaddress"
+							type="file"  id="file" accept="image/*" onchange="imgChange(this);" style="width: 518px;"  msg="照片"/></li>
+						<li><label>球队<b>*</b></label><span id="sp5"></span>
 							<div class="usercity">
 								<div class="cityleft">
-									<select id="select" name="select" class="select2" name="team.id">
+									<select id="select" name="select" class="select2" name="team.id" msg="球队">
 										<!-- <option value="">巴塞罗那</option>
 										<option value="">皇马</option> -->
 									</select>
 								</div>
 							</div></li>
 						
-						<li><label>&nbsp;</label><input type="submit" class="btn"
-							value="保存" /></li>
+						<li><label>&nbsp;</label><input name="submit" type="submit" class="btn"
+							value="保存" onclick="return checkNull()"/></li>
 					</ul>
 					<div><input type="hidden" name="id" value=<s:property value="player.id"/>></div>
 				</form>
 			</div>
-			<img id="imghead"src=<s:property value="player.photoaddress"/> width="100"height="100" /> <!--图片显示位置-->
+			<img id="imghead" style="position:absolute;left:800px; top:50px" src=<s:property value="player.photoaddress"/> width="200"height="200" /> <!--图片显示位置-->
 		</div>
 	</div>
 	<script type="text/javascript">
